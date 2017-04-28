@@ -19,11 +19,23 @@ public class User {
     @Column(name="username")
     private String username;
 
-    @Column(name="password")
-    private String password;
+    @Column
+    private String firstname;
+
+    @Column
+    private String lastname;
 
     @Column(name = "email")
     private String email;
+
+    @Column(name="password")
+    private String password;
+
+    @Column
+    private String confirm_pass;
+
+    @Column
+    private Long group_id;
 
     @Embedded
     private Dates dates;
@@ -87,5 +99,40 @@ public class User {
     public void setDates(Dates dates) {
         this.dates = dates;
     }
+
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getConfirm_pass() {
+        return confirm_pass;
+    }
+
+    public void setConfirm_pass(String confirm_pass) {
+        this.confirm_pass = confirm_pass;
+    }
+
+    public Long getGroup_id() {
+        return group_id;
+    }
+
+    public void setGroup_id(Long group_id) {
+        this.group_id = group_id;
+    }
+
+
 
 }
