@@ -27,6 +27,7 @@ public class Subject {
     @Column(name = "active")
     private boolean active;
 
+
     @OneToMany(fetch = FetchType.EAGER,mappedBy = "subject_id")
     private List<Message> subject_id;
 
