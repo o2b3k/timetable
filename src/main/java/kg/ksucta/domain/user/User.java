@@ -1,6 +1,7 @@
 package kg.ksucta.domain.user;
 
 import kg.ksucta.domain.embeddable.Dates;
+import kg.ksucta.domain.model.Message;
 import org.hibernate.validator.constraints.Email;
 
 import java.util.List;
@@ -43,13 +44,17 @@ public class User {
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
     private List<UserRole> roles;
 
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user_id")
+    private List<Message> user_ids;
+
     public User() { }
 
-    public User(Long id, String username, String password, List<UserRole> roles) {
+    public User(Long id, String username, String password, List<UserRole> roles, List<Message> user_ids) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.roles = roles;
+        this.user_ids = user_ids;
     }
 
     public Long getId() {
@@ -70,6 +75,14 @@ public class User {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public List<Message> getUser_ids() {
+        return user_ids;
+    }
+
+    public void setUser_ids(List<Message> user_ids) {
+        this.user_ids = user_ids;
     }
 
     public void setUsername(String username) {

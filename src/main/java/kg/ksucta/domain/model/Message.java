@@ -1,5 +1,7 @@
 package kg.ksucta.domain.model;
 
+import kg.ksucta.domain.user.User;
+
 import javax.persistence.*;
 
 /**
@@ -20,8 +22,10 @@ public class Message {
     @Column(name = "created_at")
     private String created_at;
 
-    @Column(name = "user_id")
-    private Integer user_id;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user_id;
+
 
     public Message(){
 
@@ -59,11 +63,11 @@ public class Message {
         this.created_at = created_at;
     }
 
-    public Integer getUser_id() {
+    public User getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(Integer user_id) {
+    public void setUser_id(User user_id) {
         this.user_id = user_id;
     }
 }
