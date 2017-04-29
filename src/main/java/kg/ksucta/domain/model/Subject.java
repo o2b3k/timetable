@@ -1,6 +1,7 @@
 package kg.ksucta.domain.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by o2b3k on 4/22/17.
@@ -26,8 +27,20 @@ public class Subject {
     @Column(name = "active")
     private boolean active;
 
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "subject_id")
+    private List<Message> subject_id;
+
+
     public Subject(){
 
+    }
+
+    public List<Message> getSubject_id() {
+        return subject_id;
+    }
+
+    public void setSubject_id(List<Message> subject_id) {
+        this.subject_id = subject_id;
     }
 
     public Integer getId() {

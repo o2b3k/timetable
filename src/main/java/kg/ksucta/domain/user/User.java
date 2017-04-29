@@ -45,16 +45,16 @@ public class User {
     private List<UserRole> roles;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user_id")
-    private List<Message> user_ids;
+    private List<Message> user_id;
 
     public User() { }
 
-    public User(Long id, String username, String password, List<UserRole> roles, List<Message> user_ids) {
+    public User(Long id, String username, String password, List<UserRole> roles, List<Message> user_id) {
         this.id = id;
         this.username = username;
         this.password = password;
         this.roles = roles;
-        this.user_ids = user_ids;
+        this.user_id = user_id;
     }
 
     public Long getId() {
@@ -77,12 +77,12 @@ public class User {
         this.id = id;
     }
 
-    public List<Message> getUser_ids() {
-        return user_ids;
+    public List<Message> getUser_id() {
+        return user_id;
     }
 
-    public void setUser_ids(List<Message> user_ids) {
-        this.user_ids = user_ids;
+    public void setUser_id(List<Message> user_id) {
+        this.user_id = user_id;
     }
 
     public void setUsername(String username) {

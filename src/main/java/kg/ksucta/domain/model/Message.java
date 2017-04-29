@@ -13,8 +13,9 @@ public class Message {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(name = "subject_id")
-    private Integer subject_id;
+    @ManyToOne
+    @JoinColumn(name = "subject_id")
+    private Message subject_id;
 
     @Column(name = "text")
     private String text;
@@ -39,11 +40,11 @@ public class Message {
         this.id = id;
     }
 
-    public Integer getSubject_id() {
+    public Message getSubject_id() {
         return subject_id;
     }
 
-    public void setSubject_id(Integer subject_id) {
+    public void setSubject_id(Message subject_id) {
         this.subject_id = subject_id;
     }
 
