@@ -27,20 +27,20 @@ public class Subject {
     @Column(name = "active")
     private boolean active;
 
-    @OneToMany(fetch = FetchType.EAGER,mappedBy = "subject_id")
-    private List<Message> subject_id;
+    @OneToMany(fetch = FetchType.EAGER,mappedBy = "message")
+    private List<Message> messages;
 
 
     public Subject(){
 
     }
 
-    public List<Message> getSubject_id() {
-        return subject_id;
+    public List<Message> getMessages() {
+        return messages;
     }
 
-    public void setSubject_id(List<Message> subject_id) {
-        this.subject_id = subject_id;
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 
     public Integer getId() {

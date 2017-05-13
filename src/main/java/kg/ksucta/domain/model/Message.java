@@ -25,6 +25,10 @@ public class Message {
     @JoinColumn(name = "subject_id")
     private Subject message;
 
+//    @ManyToOne
+//    @JoinColumn(name = "users_id")
+//    private User user_message;
+
     public Message(){
 
     }
@@ -60,4 +64,12 @@ public class Message {
     public void setMessage(Subject message) {
         this.message = message;
     }
+
+//    public User getUser_message() {
+//        return user_message;
+//    }
+//
+//    public void setUser_message(User user_message) {
+//        this.user_message = user_message;
+//    }
 }

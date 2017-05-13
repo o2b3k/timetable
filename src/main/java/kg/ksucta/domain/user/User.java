@@ -2,9 +2,14 @@ package kg.ksucta.domain.user;
 
 import kg.ksucta.domain.embeddable.Dates;
 import kg.ksucta.domain.model.Message;
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.validator.constraints.Email;
 
 import java.util.List;
+import java.util.Set;
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -41,9 +46,11 @@ public class User {
     @Embedded
     private Dates dates;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user",cascade = CascadeType.ALL)
     private List<UserRole> roles;
 
+//    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user_message",cascade = CascadeType.ALL)
+//    private List<Message> user_messages;
 
     public User() { }
 
@@ -135,6 +142,11 @@ public class User {
         this.group_id = group_id;
     }
 
-
-
+//    public List<Message> getUser_messages() {
+//        return user_messages;
+//    }
+//
+//    public void setUser_messages(List<Message> user_messages) {
+//        this.user_messages = user_messages;
+//    }
 }
