@@ -11,5 +11,5 @@ import java.util.Optional;
  */
 @Repository("subjectRepository")
 public interface SubjectRepository extends JpaRepository<Subject,Long>{
-    Optional<Subject> findByDay_of_weeks(String day);
+
 }
