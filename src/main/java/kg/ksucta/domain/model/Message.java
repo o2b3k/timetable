@@ -8,14 +8,12 @@ import javax.persistence.*;
  * Created by Bahriddin on 27.04.2017.
  */
 @Entity
+@Table(name = "MESSAGES")
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
     private Integer id;
-
-    @ManyToOne
-    @JoinColumn(name = "subject_id")
-    private Message subject_id;
 
     @Column(name = "text")
     private String text;
@@ -24,9 +22,8 @@ public class Message {
     private String created_at;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user_id;
-
+    @JoinColumn(name = "subject_id")
+    private Subject message;
 
     public Message(){
 
@@ -38,14 +35,6 @@ public class Message {
 
     public void setId(Integer id) {
         this.id = id;
-    }
-
-    public Message getSubject_id() {
-        return subject_id;
-    }
-
-    public void setSubject_id(Message subject_id) {
-        this.subject_id = subject_id;
     }
 
     public String getText() {
@@ -64,11 +53,11 @@ public class Message {
         this.created_at = created_at;
     }
 
-    public User getUser_id() {
-        return user_id;
+    public Subject getMessage() {
+        return message;
     }
 
-    public void setUser_id(User user_id) {
-        this.user_id = user_id;
+    public void setMessage(Subject message) {
+        this.message = message;
     }
 }

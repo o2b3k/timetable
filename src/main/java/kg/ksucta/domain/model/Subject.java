@@ -7,7 +7,9 @@ import java.util.List;
  * Created by o2b3k on 4/22/17.
  */
 @Entity
+@Table(name = "SUBJECT")
 public class Subject {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
@@ -27,20 +29,17 @@ public class Subject {
     @Column(name = "active")
     private boolean active;
 
-    @OneToMany(fetch = FetchType.EAGER,mappedBy = "subject_id")
-    private List<Message> subject_id;
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "message")
+    private List<Message> messages;
 
+    public Subject(){   }
 
-    public Subject(){
-
+    public List<Message> getMessages() {
+        return messages;
     }
 
-    public List<Message> getSubject_id() {
-        return subject_id;
-    }
-
-    public void setSubject_id(List<Message> subject_id) {
-        this.subject_id = subject_id;
+    public void setMessages(List<Message> messages) {
+        this.messages = messages;
     }
 
     public Integer getId() {
